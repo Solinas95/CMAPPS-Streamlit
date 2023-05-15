@@ -113,7 +113,7 @@ def count_cycles_by_unit(df):
 def plot_sensor_data(df, filtered_data):
 
     # creazione del grafico
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(20,15))
     for sensor in df.columns[2:]:
         ax.plot(filtered_data['time_in_cycles'], filtered_data[sensor], label=sensor)
     ax.set_xlabel('Time (cycles)')
