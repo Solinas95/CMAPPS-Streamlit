@@ -248,3 +248,25 @@ def plot_hotelling_tsquare(cmapps_data, unit_id , selected_variables):
 
 
     return unit_T_square
+
+
+def plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, sensors):
+    # Plot the Hotelling's T-square for the training data
+    unit_T_square_train = plot_hotelling_tsquare(df_train, selected_unit_id, sensors)
+
+    # Plot the Hotelling's T-square for the test data
+    unit_T_square_test = plot_hotelling_tsquare(df_test, selected_unit_id, sensors)
+
+    if unit_T_square_train is None or unit_T_square_test is None:
+        return
+
+    # Plot the Hotelling's T-square values and the critical value
+    plt.plot(unit_T_square_train, label="normal data")
+    plt.plot(unit_T_square_test, label="actual data")
+    plt.xlabel('Row Index')
+    plt.ylabel("Hotelling's T-square")
+    plt.title(f'Hotelling\'s T-square for Unit ID {selected_unit_id}')
+    plt.legend()
+
+    # Display the plot using st.pyplot()
+    st.pyplot()
