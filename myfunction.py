@@ -224,4 +224,4 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns, sensors)
     plt.tight_layout()
     
     # Show the plot
-    plt.show()
+    st.plt.show()
