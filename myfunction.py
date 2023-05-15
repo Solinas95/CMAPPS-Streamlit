@@ -230,21 +230,6 @@ def plot_hotelling_tsquare(df, selected_unit_id, sensors):
     # Filter the dataframe based on selected_unit_id and sensors
     unit_data_selected = df[(df['unit_id'] == selected_unit_id) & df['sensor'].isin(sensors)]
 
-    if unit_data_selected.empty:
-        st.warning("No data found for the selected unit and sensors.")
-        return None
-
-    # Check for NaN values
-    if unit_data_selected.isnull().values.any():
-        st.warning("Data contains NaN values. Please handle the missing data before plotting.")
-        return None
-
-    # Calculate the mean vector
-    if len(unit_data_selected) > 0:
-        mean_vector = np.mean(unit_data_selected, axis=0)
-    else:
-        st.warning("Data is empty.")
-        return None
 
 
     # Filter data for the specified unit_id
@@ -270,9 +255,6 @@ def plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, senso
 
     # Plot the Hotelling's T-square for the test data
     unit_T_square_test = plot_hotelling_tsquare(df_test, selected_unit_id, sensors)
-
-    if unit_T_square_train is None or unit_T_square_test is None:
-        return
 
     # Plot the Hotelling's T-square values and the critical value
     plt.plot(unit_T_square_train, label="normal data")
