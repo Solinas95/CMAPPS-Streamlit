@@ -38,42 +38,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot_selected_columns(df_train, selected_unit_id, selected_columns, sensors):
-    # Filter the DataFrame for the selected unit ID
-    df_selected_unit = df_train[df_train['unit_ID'] == selected_unit_id]
-    
-    # Define a list of colors
-    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']
-    
-    # Calculate the number of rows and columns for the grid
-    num_plots = len(selected_columns)
-    num_cols = int(np.ceil(np.sqrt(num_plots)))
-    num_rows = int(np.ceil(num_plots / num_cols))
-    
-    # Create a figure and a grid of subplots
-    fig, axs = plt.subplots(num_rows, num_cols, figsize=(6*num_cols, 6*num_rows))
-    
-    # Flatten the array of axes, for easier indexing
-    axs = axs.flatten()
-    
-    # Plot each column
-    for i, column in enumerate(selected_columns):
-        axs[i].plot(df_selected_unit[column].values, color=colors[i % len(colors)], label=column)
-        axs[i].set_title('Values of column "{}" for unit ID "{}"'.format(column, selected_unit_id))
-        axs[i].set_xlabel('Count')
-        axs[i].set_ylabel('Value')
-        axs[i].legend()
-    
-    # Remove unused subplots
-    for i in range(num_plots, num_rows*num_cols):
-        fig.delaxes(axs[i])
-    
-    # Adjust the layout so that plots do not overlap
-    plt.tight_layout()
-    
-    # Show the plot
-    plt.show()
-
 plot_selected_columns(df_test, selected_unit_id, sensors, sensors)
 
 ############################# PROVA PRINT TEST PREPROCESS #########################################
