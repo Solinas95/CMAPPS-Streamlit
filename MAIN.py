@@ -34,11 +34,19 @@ train, test = myfunction.remove_columns(train, test, columns_to_remove)
 # Ask the user for the unit_id
 selected_unit_id = st.number_input('Please enter a unit ID', min_value=1, value=1)
 
-import matplotlib.pyplot as plt
-import numpy as np
+# Drop the specified columns
+df_dropped = df_train.drop(['time_in_cycles', 'unit_ID'], axis=1)
 
+# Calculate the standard deviation of each column
+std_dev = df_dropped.std()
 
-myfunction.plot_selected_columns(df_test, selected_unit_id, sensors, sensors)
+# Sort the columns by their standard deviation, in descending order
+sorted_columns = std_dev.sort_values(ascending=False)
+
+# Get the names of the first four columns
+selected_columns = sorted_columns.index[:4]
+
+myfunction.plot_selected_columns(df_test, selected_unit_id, selected_columns, selected_columns)
 
 ############################# PROVA PRINT TEST PREPROCESS #########################################
 st.write("Preprocessed Test Data:")
