@@ -23,7 +23,7 @@ df_train, comparison_test, df_rul = myfunction.read_data_from_github(url_TRAIN, 
 
 test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
 if test_data_file is not None:
-    df_test = load_data(test_data_file)
+    df_test = myfunction.load_data(test_data_file)
     st.write("Test Data:")
     st.write(df_test.shape)
     st.write(df_test.describe())
