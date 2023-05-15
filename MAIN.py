@@ -7,11 +7,11 @@ import streamlit as st
 test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
 if test_data_file is not None:
     df_test = myfunction.load_data(test_data_file)
+    df_test.dropna(axis=1, inplace=True)
     st.write("Test Data:")
     st.write(df_test.shape)
     st.write(df_test.describe())
     st.write(df_test.head())
-    df_test.dropna(axis=1, inplace=True)
     columns = ['unit_ID','time_in_cycles','setting_1', 'setting_2','setting_3','T2','T24','T30','T50','P2','P15','P30','Nf','Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','PCNfR_dmd','W31','W32' ]
 
     sensors = ['T2', 'T24', 'T30', 'T50', 'P2', 'P15', 'P30', 'Nf', 'Nc', 'epr','Ps30', 'phi', 'NRf', 'NRc', 'BPR', 'farB', 'htBleed', 'Nf_dmd','PCNfR_dmd', 'W31', 'W32']
@@ -24,6 +24,7 @@ if test_data_file is not None:
     url_RUL = "https://raw.githubusercontent.com/ashfu96/ALB/main/RUL_FD001.txt"
     
     df_train, comparison_test, df_rul = myfunction.read_data_from_github(url_TRAIN, url_TEST, url_RUL)
+    df_train.shape
     df_train, df_test = myfunction.rename_columns(df_train, df_test, columns)
 
     # RIMOZIONE SENSORI CON DEVIAZIONE STANDARD = 0
