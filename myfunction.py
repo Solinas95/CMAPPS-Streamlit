@@ -235,7 +235,7 @@ def plot_hotelling_tsquare(df, selected_unit_id, sensors):
     unit_data = df[df['unit_ID'] == selected_unit_id]
 
     # Select the variables of interest for the specified unit_id
-    unit_data_selected = unit_data[selected_variables]
+    unit_data_selected = unit_data[sensors]
 
     # Calculate the mean vector for the selected variables
     mean_vector = np.mean(unit_data_selected, axis=0)
