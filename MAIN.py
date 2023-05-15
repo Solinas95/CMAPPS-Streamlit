@@ -35,7 +35,7 @@ train, test = myfunction.remove_columns(train, test, columns_to_remove)
 selected_unit_id = st.number_input('Please enter a unit ID', min_value=1, value=1)
 
 # Drop the specified columns
-df_dropped = df_train.drop(['time_in_cycles', 'unit_ID'], axis=1)
+df_dropped = test.drop(['time_in_cycles', 'unit_ID'], axis=1)
 
 # Calculate the standard deviation of each column
 std_dev = df_dropped.std()
