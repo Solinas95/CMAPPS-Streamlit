@@ -38,7 +38,7 @@ if test_data_file is not None:
     # PLOT DEI SENSORI CON STANDARD DEVIATION PIU' ELEVATA
 
     # Ask the user for the unit_id
-    selected_unit_id = st.number_input('Please enter a unit ID', min_value=1, value=1)
+    selected_unit_id = st.sidebar.selectbox('Seleziona unit_ID', unit_ids)
 
     # Drop the specified columns
     df_dropped = test.drop(['time_in_cycles', 'unit_ID'], axis=1)
@@ -64,7 +64,7 @@ if test_data_file is not None:
     st.write("Analisi dati delle unità")
 
     # Filtra il DataFrame in base all'unità selezionata
-    filtered_data = myfunction.filter_by_unit(test)
+    filtered_data = myfunction.filter_by_unit(test,selected_unit_id)
 
     # Mostra il conteggio dei cicli per l'unità selezionata
     results = myfunction.count_cycles_by_unit(filtered_data)
