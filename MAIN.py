@@ -74,8 +74,8 @@ if test_data_file is not None:
 
     
     # Plot the Hotelling's T-square for the specified unit_id
-    unit_T_square_test=myfunction.plot_hotelling_tsquare(df_test, unit_id,sensors)
-    unit_T_square_train=myfunction.plot_hotelling_tsquare(df_train, unit_id,sensors)
+    unit_T_square_test=myfunction.plot_hotelling_tsquare(df_test, selected_unit_id,sensors)
+    unit_T_square_train=myfunction.plot_hotelling_tsquare(df_train, selected_unit_id,sensors)
 
 
     # Plot the Hotelling's T-square values and the critical value
