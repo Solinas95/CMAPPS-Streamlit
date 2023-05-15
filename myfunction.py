@@ -226,7 +226,7 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns):
     
     
     
-    def plot_hotelling_tsquare(cmapps_data, unit_id , selected_variables):
+def plot_hotelling_tsquare(cmapps_data, unit_id , selected_variables):
     # Define the variables to include in the analysis
     
 
