@@ -2,15 +2,12 @@ import myfunction
 import streamlit as st
 #streamlit run ALB/MAIN.py
 
-# IMPORTO DATASET
-url_TRAIN = "https://raw.githubusercontent.com/ashfu96/ALB/main/train_FD001.txt"
-url_TEST = "https://raw.githubusercontent.com/ashfu96/ALB/main/test_FD001.txt"
-url_RUL = "https://raw.githubusercontent.com/ashfu96/ALB/main/RUL_FD001.txt"
-
-df_train, df_test, df_rul = myfunction.read_data_from_github(url_TRAIN, url_TEST, url_RUL)
-
-# RIMUOVO NaN
-df_train, df_test, df_rul = myfunction.remove_nan_columns(df_train, df_test, df_rul)
+test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
+if test_data_file is not None:
+    df_test = load_data(test_data_file)
+    st.write("Test Data:")
+    st.write(df_test.shape)
+    st.write(df_test.describe())
 
 # RINOMINO COLONNE CON LABELS
 columns = ['unit_ID','time_in_cycles','setting_1', 'setting_2','setting_3','T2','T24','T30','T50','P2','P15','P30','Nf','Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','PCNfR_dmd','W31','W32' ]
@@ -66,7 +63,7 @@ for result in results:
            st.write(result)
 
 # Mostra il plot dell'andamento dei sensori per l'unità selezionata
-myfunction.plot_sensor_data(test, filtered_data)
+#myfunction.plot_sensor_data(test, filtered_data)
 
 #######################################################
 
