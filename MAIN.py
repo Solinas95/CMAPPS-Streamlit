@@ -73,8 +73,5 @@ if test_data_file is not None:
     #st.dataframe(df_test_normalized.head(10))
 
     
-    # Plot the Hotelling's T-square for the specified unit_id
-    unit_T_square_test=myfunction.plot_hotelling_tsquare(df_test, selected_unit_id,sensors)
-    unit_T_square_train=myfunction.plot_hotelling_tsquare(df_train, selected_unit_id,sensors)
 
-    myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, sensors)
+    myfunction.plot_hotelling_tsquare_comparison(train, test, selected_unit_id, sensors)
