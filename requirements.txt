@@ -3,3 +3,4 @@ pandas
 matplotlib
 function
 scikit-learn
+scipy
