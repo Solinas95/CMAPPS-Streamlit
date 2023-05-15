@@ -246,10 +246,23 @@ def plot_hotelling_tsquare(df, selected_unit_id, sensors):
         st.warning("Data is empty.")
         return None
 
-    # Rest of the plotting code...
-    # ...
 
-    return mean_vector
+    # Filter data for the specified unit_id
+    unit_data = cmapps_data[cmapps_data['unit_ID'] == unit_id]
+
+    # Select the variables of interest for the specified unit_id
+    unit_data_selected = unit_data[selected_variables]
+
+    # Calculate the mean vector for the selected variables
+    mean_vector = np.mean(unit_data_selected, axis=0)
+
+    # Calculate the covariance matrix for the selected variables
+    covariance_matrix = np.cov(unit_data_selected.values, rowvar=False)
+
+    # Calculate the Hotelling's T-square for each row in the specified unit_id
+    unit_T_square = np.dot(np.dot((unit_data_selected - mean_vector), np.linalg.inv(covariance_matrix)), (unit_data_selected - mean_vector).T).diagonal()
+
+    return  unit_T_square
 
 def plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, sensors):
     # Plot the Hotelling's T-square for the training data
