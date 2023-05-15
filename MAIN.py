@@ -19,7 +19,7 @@ if train_data_file is not None:
 
 
 test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
-if train_data_file is not None:
+if test_data_file is not None:
     df_test = load_data(test_data_file)
     st.write("Test Data:")
     st.write(df_test.shape)
