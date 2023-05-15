@@ -38,7 +38,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-plot_selected_columns(df_test, selected_unit_id, sensors, sensors)
+myfunction.plot_selected_columns(df_test, selected_unit_id, sensors, sensors)
 
 ############################# PROVA PRINT TEST PREPROCESS #########################################
 st.write("Preprocessed Test Data:")
