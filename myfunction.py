@@ -87,7 +87,6 @@ def filter_by_unit(df , selected_unit_id):
     """
     # Creazione del menu sidebar per la selezione dell'unit_id
     """
-    unit_ids = df['unit_ID'].unique()
     
 
     # Filtro del dataframe per la unit_ID selezionata
