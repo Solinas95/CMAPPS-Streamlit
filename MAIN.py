@@ -36,7 +36,7 @@ if test_data_file is not None:
     train, test = myfunction.remove_columns(train, test, columns_to_remove)
 
     # PLOT DEI SENSORI CON STANDARD DEVIATION PIU' ELEVATA
-
+    unit_ids = df_test['unit_ID'].unique()
     # Ask the user for the unit_id
     selected_unit_id = st.sidebar.selectbox('Seleziona unit_ID', unit_ids)
 
