@@ -226,29 +226,30 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns):
     
     
     
-def plot_hotelling_tsquare(cmapps_data, unit_id , selected_variables):
-    # Define the variables to include in the analysis
-    
+def plot_hotelling_tsquare(df, selected_unit_id, sensors):
+    # Filter the dataframe based on selected_unit_id and sensors
+    unit_data_selected = df[(df['unit_id'] == selected_unit_id) & df['sensor'].isin(sensors)]
 
-    # Filter data for the specified unit_id
-    unit_data = cmapps_data[cmapps_data['unit_ID'] == unit_id]
+    if unit_data_selected.empty:
+        st.warning("No data found for the selected unit and sensors.")
+        return None
 
-    # Select the variables of interest for the specified unit_id
-    unit_data_selected = unit_data[selected_variables]
+    # Check for NaN values
+    if unit_data_selected.isnull().values.any():
+        st.warning("Data contains NaN values. Please handle the missing data before plotting.")
+        return None
 
-    # Calculate the mean vector for the selected variables
-    mean_vector = np.mean(unit_data_selected, axis=0)
+    # Calculate the mean vector
+    if len(unit_data_selected) > 0:
+        mean_vector = np.mean(unit_data_selected, axis=0)
+    else:
+        st.warning("Data is empty.")
+        return None
 
-    # Calculate the covariance matrix for the selected variables
-    covariance_matrix = np.cov(unit_data_selected.values, rowvar=False)
+    # Rest of the plotting code...
+    # ...
 
-    # Calculate the Hotelling's T-square for each row in the specified unit_id
-    unit_T_square = np.dot(np.dot((unit_data_selected - mean_vector), np.linalg.inv(covariance_matrix)), (unit_data_selected - mean_vector).T).diagonal()
-
-
-
-    return unit_T_square
-
+    return mean_vector
 
 def plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, sensors):
     # Plot the Hotelling's T-square for the training data
