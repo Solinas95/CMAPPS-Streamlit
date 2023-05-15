@@ -10,13 +10,15 @@ sensors = ['T2', 'T24', 'T30', 'T50', 'P2', 'P15', 'P30', 'Nf', 'Nc', 'epr','Ps3
 settings = ['setting_1', 'setting_2','setting_3']
 
 
-df_train = None
+
 df_test = None
 
-train_data_file = st.file_uploader("Upload Normal process Data (txt)", type="txt")
-if train_data_file is not None:
-    df_train = load_data(train_data_file)
-    st.write("Normal Data:")
+# IMPORTO DATASET
+url_TRAIN = "https://raw.githubusercontent.com/ashfu96/ALB/main/train_FD001.txt"
+url_TEST = "https://raw.githubusercontent.com/ashfu96/ALB/main/test_FD001.txt"
+url_RUL = "https://raw.githubusercontent.com/ashfu96/ALB/main/RUL_FD001.txt"
+
+df_train, comparison_test, df_rul = myfunction.read_data_from_github(url_TRAIN, url_TEST, url_RUL)
 
 
 test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
