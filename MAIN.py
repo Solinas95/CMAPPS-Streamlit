@@ -28,10 +28,6 @@ if test_data_file is not None:
     st.write(df_test.shape)
     st.write(df_test.describe())
 
-
-
-    
-if df_train is not None and df_test is not None:
     df_train, df_test = myfunction.rename_columns(df_train, df_test, columns)
 
     # RIMOZIONE SENSORI CON DEVIAZIONE STANDARD = 0
