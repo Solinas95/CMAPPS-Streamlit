@@ -195,15 +195,12 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns):
     df_selected_unit = df_train[df_train['unit_ID'] == selected_unit_id]
     
     # Define a list of colors
-    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']
+    colors = ['b', 'g', 'r', 'c']
     
-    # Calculate the number of rows and columns for the grid
-    num_plots = len(selected_columns)
-    num_cols = int(np.ceil(np.sqrt(num_plots)))
-    num_rows = int(np.ceil(num_plots / num_cols))
+
     
     # Create a figure and a grid of subplots
-    fig, axs = plt.subplots(num_rows, num_cols, figsize=(6*num_cols, 6*num_rows))
+    fig, axs = plt.subplots(2, 2, figsize=(6*num_cols, 6*num_rows))
     
     # Flatten the array of axes, for easier indexing
     axs = axs.flatten()
