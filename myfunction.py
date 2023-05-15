@@ -214,7 +214,7 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns):
         axs[i].legend()
     
     # Remove unused subplots
-    for i in range(num_plots, num_rows*num_cols):
+    for i in range(4, 4):
         fig.delaxes(axs[i])
     
     # Adjust the layout so that plots do not overlap
