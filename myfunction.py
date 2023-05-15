@@ -190,7 +190,7 @@ def normalize_test_columns(df, cols_to_exclude):
 ###############  SENSOR PLOT  ###################
 
 
-def plot_selected_columns(df_train, selected_unit_id, selected_columns, sensors):
+def plot_selected_columns(df_train, selected_unit_id, selected_columns):
     # Filter the DataFrame for the selected unit ID
     df_selected_unit = df_train[df_train['unit_ID'] == selected_unit_id]
     
@@ -223,5 +223,5 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns, sensors)
     # Adjust the layout so that plots do not overlap
     plt.tight_layout()
     
-    # Show the plot
-    st.plt.show()
+    # Use Streamlit's matplotlib support to display the plot
+    st.pyplot(fig)
