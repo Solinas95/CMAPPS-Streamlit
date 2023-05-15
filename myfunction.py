@@ -22,6 +22,8 @@ def read_data_from_github(train_url, test_url, rul_url):
     # restituisce i dataframes
     return df_train, df_test, df_rul
 
+def load_data(data):
+    return pd.read_csv(data, delimiter=" ", header=None)
 
 # RIMOZIONE COLONNE NaN
 def remove_nan_columns(df_train, df_test, df_rul):
