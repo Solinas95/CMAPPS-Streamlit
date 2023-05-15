@@ -24,7 +24,7 @@ if test_data_file is not None:
     url_RUL = "https://raw.githubusercontent.com/ashfu96/ALB/main/RUL_FD001.txt"
     
     df_train, comparison_test, df_rul = myfunction.read_data_from_github(url_TRAIN, url_TEST, url_RUL)
-    df_train.shape
+    df_train.dropna(axis=1, inplace=True)
     df_train, df_test = myfunction.rename_columns(df_train, df_test, columns)
 
     # RIMOZIONE SENSORI CON DEVIAZIONE STANDARD = 0
