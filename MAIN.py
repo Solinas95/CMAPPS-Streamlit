@@ -71,3 +71,18 @@ if test_data_file is not None:
     cols_to_exclude = ['unit_ID','time_in_cycles']
     df_test_normalized = myfunction.normalize_test_columns(test, cols_to_exclude)
     #st.dataframe(df_test_normalized.head(10))
+
+    
+    # Plot the Hotelling's T-square for the specified unit_id
+    unit_T_square_test=myfunction.plot_hotelling_tsquare(df_test, unit_id,sensors)
+    unit_T_square_train=myfunction.plot_hotelling_tsquare(df_train, unit_id,sensors)
+
+
+    # Plot the Hotelling's T-square values and the critical value
+    plt.plot(unit_T_square_train, label="normal data")
+    plt.plot(unit_T_square_test, label="actual data")
+    plt.xlabel('Row Index')
+    plt.ylabel("Hotelling's T-square")
+    plt.title(f'Hotelling\'s T-square for Unit ID {unit_id}')
+    plt.legend()
+    plt.show()
