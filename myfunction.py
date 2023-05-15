@@ -227,8 +227,7 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns):
     
     
 def plot_hotelling_tsquare(df, selected_unit_id, sensors):
-    # Filter the dataframe based on selected_unit_id and sensors
-    unit_data_selected = df[(df['unit_id'] == selected_unit_id) & df['sensor'].isin(sensors)]
+
 
 
 
