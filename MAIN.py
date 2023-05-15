@@ -37,7 +37,10 @@ if test_data_file is not None:
     
     st.title("Visualizzazione dati sensori per unit_ID")
     st.write("Analisi dati delle unità")
-
+    # PLOT DEI SENSORI CON STANDARD DEVIATION PIU' ELEVATA
+    unit_ids = df_test['unit_ID'].unique()
+    # Ask the user for the unit_id
+    selected_unit_id = st.sidebar.selectbox('Seleziona unit_ID', unit_ids)
     # Filtra il DataFrame in base all'unità selezionata
     filtered_data = myfunction.filter_by_unit(test,selected_unit_id)
 
@@ -46,10 +49,7 @@ if test_data_file is not None:
     for result in results:
             st.write(result)
 
-    # PLOT DEI SENSORI CON STANDARD DEVIATION PIU' ELEVATA
-    unit_ids = df_test['unit_ID'].unique()
-    # Ask the user for the unit_id
-    selected_unit_id = st.sidebar.selectbox('Seleziona unit_ID', unit_ids)
+
 
     # Drop the specified columns
     df_dropped = test.drop(['time_in_cycles', 'unit_ID'], axis=1)
