@@ -65,27 +65,7 @@ if test_data_file is not None:
 
     myfunction.plot_selected_columns(test, selected_unit_id, selected_columns)
 
-    ############################# PROVA PRINT TEST PREPROCESS #########################################
-    st.write("Preprocessed Test Data:")
-    st.write(test.head())
 
-    ####### STREAMLIT #######
-
-    st.title("Visualizzazione dati sensori per unit_ID")
-    st.write("Analisi dati delle unità")
-
-    # Filtra il DataFrame in base all'unità selezionata
-    filtered_data = myfunction.filter_by_unit(test,selected_unit_id)
-
-    # Mostra il conteggio dei cicli per l'unità selezionata
-    results = myfunction.count_cycles_by_unit(filtered_data)
-    for result in results:
-             st.write(result)
-
-    # Mostra il plot dell'andamento dei sensori per l'unità selezionata
-    #myfunction.plot_sensor_data(test, filtered_data)
-
-    #######################################################
 
     # NORMALIZZAZIONE COLONNE DATASET DI TEST + CREAZIONE cycle_norm
     cols_to_exclude = ['unit_ID','time_in_cycles']
