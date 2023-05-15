@@ -83,12 +83,12 @@ def remove_columns(df_train, df_test, columns_to_remove):
 ############## STREAMLIT ##############
 
 #FILTRO DEL DATASET PER UNIT_ID SELEZIONATA
-def filter_by_unit(df):
+def filter_by_unit(df , selected_unit_id):
     """
     # Creazione del menu sidebar per la selezione dell'unit_id
     """
     unit_ids = df['unit_ID'].unique()
-    selected_unit_id = st.sidebar.selectbox('Seleziona unit_ID', unit_ids)
+    
 
     # Filtro del dataframe per la unit_ID selezionata
     filtered_data = df[df['unit_ID'] == selected_unit_id]
