@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sklearn
 from sklearn.preprocessing import MinMaxScaler
-
+from scipy.stats import f
 # FUNZIONE PER LETTURA FILE DATASET DA GITHUB
 
 def read_data_from_github(train_url, test_url, rul_url):
@@ -223,3 +223,28 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns):
     
     # Use Streamlit's matplotlib support to display the plot
     st.pyplot(fig)
+    
+    
+    
+    def plot_hotelling_tsquare(cmapps_data, unit_id , selected_variables):
+    # Define the variables to include in the analysis
+    
+
+    # Filter data for the specified unit_id
+    unit_data = cmapps_data[cmapps_data['unit_ID'] == unit_id]
+
+    # Select the variables of interest for the specified unit_id
+    unit_data_selected = unit_data[selected_variables]
+
+    # Calculate the mean vector for the selected variables
+    mean_vector = np.mean(unit_data_selected, axis=0)
+
+    # Calculate the covariance matrix for the selected variables
+    covariance_matrix = np.cov(unit_data_selected.values, rowvar=False)
+
+    # Calculate the Hotelling's T-square for each row in the specified unit_id
+    unit_T_square = np.dot(np.dot((unit_data_selected - mean_vector), np.linalg.inv(covariance_matrix)), (unit_data_selected - mean_vector).T).diagonal()
+
+
+
+    return unit_T_square
