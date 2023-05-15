@@ -232,7 +232,7 @@ def plot_hotelling_tsquare(df, selected_unit_id, sensors):
 
 
     # Filter data for the specified unit_id
-    unit_data = df[df['unit_ID'] == unit_id]
+    unit_data = df[df['unit_ID'] == selected_unit_id]
 
     # Select the variables of interest for the specified unit_id
     unit_data_selected = unit_data[selected_variables]
