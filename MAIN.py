@@ -1,6 +1,18 @@
 import myfunction
 import streamlit as st
 #streamlit run ALB/MAIN.py
+# RINOMINO COLONNE CON LABELS
+
+columns = ['unit_ID','time_in_cycles','setting_1', 'setting_2','setting_3','T2','T24','T30','T50','P2','P15','P30','Nf','Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','PCNfR_dmd','W31','W32' ]
+
+sensors = ['T2', 'T24', 'T30', 'T50', 'P2', 'P15', 'P30', 'Nf', 'Nc', 'epr','Ps30', 'phi', 'NRf', 'NRc', 'BPR', 'farB', 'htBleed', 'Nf_dmd','PCNfR_dmd', 'W31', 'W32']
+
+settings = ['setting_1', 'setting_2','setting_3']
+
+
+df_train = None
+df_test = None
+
 
 train_data_file = st.file_uploader("Upload Normal process Data (txt)", type="txt")
 if train_data_file is not None:
@@ -18,13 +30,6 @@ if test_data_file is not None:
 
 
     
-
-# RINOMINO COLONNE CON LABELS
-columns = ['unit_ID','time_in_cycles','setting_1', 'setting_2','setting_3','T2','T24','T30','T50','P2','P15','P30','Nf','Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','PCNfR_dmd','W31','W32' ]
-
-sensors = ['T2', 'T24', 'T30', 'T50', 'P2', 'P15', 'P30', 'Nf', 'Nc', 'epr','Ps30', 'phi', 'NRf', 'NRc', 'BPR', 'farB', 'htBleed', 'Nf_dmd','PCNfR_dmd', 'W31', 'W32']
-
-settings = ['setting_1', 'setting_2','setting_3']
 
 df_train, df_test = myfunction.rename_columns(df_train, df_test, columns)
 
