@@ -3,7 +3,7 @@ import streamlit as st
 #streamlit run ALB/MAIN.py
 
 train_data_file = st.file_uploader("Upload Normal process Data (txt)", type="txt")
-if test_data_file is not None:
+if train_data_file is not None:
     df_train = load_data(train_data_file)
     st.write("Normal Data:")
 
