@@ -17,7 +17,7 @@ df_train = load_data(train_data_file)
 st.write("Normal Data:")
 
 
-test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt"
+test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
 df_test = load_data(test_data_file)
 st.write("Test Data:")
 st.write(df_test.shape)
