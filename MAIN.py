@@ -33,6 +33,18 @@ if test_data_file is not None:
     # RIMOZIONE COLONNE CHE NON MI SERVONO ORA
     columns_to_remove = ['setting_1', 'setting_2']
     train, test = myfunction.remove_columns(train, test, columns_to_remove)
+    
+    
+    st.title("Visualizzazione dati sensori per unit_ID")
+    st.write("Analisi dati delle unità")
+
+    # Filtra il DataFrame in base all'unità selezionata
+    filtered_data = myfunction.filter_by_unit(test,selected_unit_id)
+
+    # Mostra il conteggio dei cicli per l'unità selezionata
+    results = myfunction.count_cycles_by_unit(filtered_data)
+    for result in results:
+            st.write(result)
 
     # PLOT DEI SENSORI CON STANDARD DEVIATION PIU' ELEVATA
     unit_ids = df_test['unit_ID'].unique()
