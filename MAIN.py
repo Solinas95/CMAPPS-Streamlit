@@ -136,12 +136,12 @@ if test_data_file is not None:
     
     not_null = result_df[result_df['prediction'].notnull()].copy()
     not_null["prediction"]=not_null["prediction"].astype(int)
-    not_null = not_null[not_null['prediction'] >= 30].copy()
+    not_null = not_null[not_null['prediction'] >= 20].copy()
     
     
     subset_df = result_df[result_df['prediction'].notnull()].copy()
     subset_df["prediction"]=subset_df["prediction"].astype(int)
-    subset_df = subset_df[subset_df['prediction'] < 30].copy()
+    subset_df = subset_df[subset_df['prediction'] < 20].copy()
     
     
     null = result_df[result_df['prediction'].isnull()].copy()
