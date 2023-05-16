@@ -2,5 +2,5 @@ streamlit
 pandas
 matplotlib
 function
-scikit-learn
+scikit-learn == 1.0.2
 scipy
