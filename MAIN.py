@@ -127,7 +127,7 @@ if test_data_file is not None:
     
     
     # Load the saved model
-    model = keras.models.load_model("model_lstm.h5")
+    model = load_model("model_lstm.h5")
     model.compile(loss='mean_squared_error', optimizer='nadam',metrics=['mae'])
     st.write("model loaded")
     
