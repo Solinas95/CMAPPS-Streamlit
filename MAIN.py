@@ -164,24 +164,25 @@ if test_data_file is not None:
     # Create columns to display the dataset parts side by side
     col1, col2, col3, col4 = st.beta_columns(4)
 
+    st.title("Urgent maintainance")
     # Display the first part of the first dataset in the first column
     with col1:
-        st.markdown("## Urgent maintenance (Part 1)")
-        st.dataframe(subset_df_part1.style.set_caption("Urgent maintenance (Part 1)"))
+        st.markdown("")
+        st.dataframe(subset_df_part1.style.set_caption(""))
 
     # Display the second part of the first dataset in the second column
     with col2:
         st.markdown("## Urgent maintenance (Part 2)")
-        st.dataframe(subset_df_part2.style.set_caption("Urgent maintenance (Part 2)"))
+        st.dataframe(subset_df_part2.style.set_caption(""))
 
     # Display the third part of the first dataset in the third column
     with col3:
         st.markdown("## Urgent maintenance (Part 3)")
-        st.dataframe(subset_df_part3.style.set_caption("Urgent maintenance (Part 3)"))
+        st.dataframe(subset_df_part3.style.set_caption(""))
     # Display the fourth part in the fourth column
     with col4:
         st.markdown("## Part 4")
-        st.dataframe(subset_df_part4.style.set_caption("Part 4"))
+        st.dataframe(subset_df_part4.style.set_caption("))
         
     
     
