@@ -64,7 +64,7 @@ if test_data_file is not None:
     selected_columns = sorted_columns.index[:4]
     
     st.write(selected_columns)
-    myfunction.plot_selected_columns(test, selected_unit_id, selected_columns)
+    myfunction.plot_selected_columns(test, selected_unit_id, list(selected_columns))
 
 
 
