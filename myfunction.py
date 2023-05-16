@@ -239,12 +239,14 @@ def plot_hotelling_tsquare(df, selected_unit_id, sensors):
     unit_data_selected.reset_index(drop=True, inplace=True)
     
         # Check for empty or non-numeric data
+    # Check for empty or non-numeric data
     if unit_data_selected.empty:
         st.warning("No data found for the selected unit and sensors.")
         return None
-    if not np.issubdtype(unit_data_selected.dtypes, np.number):
+    if not unit_data_selected.select_dtypes(include=[np.number]).columns.equals(unit_data_selected.columns):
         st.warning("Selected columns should contain numerical data.")
         return None
+
     
     # Calculate the mean vector for the selected variables
     mean_vector = np.mean(unit_data_selected, axis=0)
