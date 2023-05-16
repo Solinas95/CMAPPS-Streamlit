@@ -147,15 +147,15 @@ if test_data_file is not None:
 
     # Display the first dataset in the first column
     with col1:
-        st.markdown("## Dataset 1")
+        st.markdown("## Urgent maintainance")
         st.dataframe(subset_df.style.set_caption("Urgent maintainance"))
 
     # Display the second dataset in the second column
     with col2:
-        st.markdown("## Dataset 2")
+        st.markdown("## Normal condition")
         st.dataframe(not_null.style.set_caption("Normal condition"))
 
     # Display the third dataset in the third column
     with col3:
-        st.markdown("## Dataset 3")
+        st.markdown("## In control")
         st.dataframe(null.style.set_caption("In control"))
