@@ -115,3 +115,6 @@ if test_data_file is not None:
     df_test_normalized = df_test_normalized.drop(columns_to_remove, axis=1)
     st.write(df_test_normalized.head())
     st.write(df_test_normalized.shape)
+    
+    pickled_model = pickle.load(open('model.pkl', 'rb'))
+    
