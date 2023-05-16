@@ -4,3 +4,4 @@ matplotlib
 function
 scikit-learn==1.0.2
 scipy
+tensorflow
