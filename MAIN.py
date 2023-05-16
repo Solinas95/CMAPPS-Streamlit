@@ -16,10 +16,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"  # Optional: Expand the sidebar by default
 )
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded', page_icon="🚀", page_title="Predictive maintainace using LSTM (Long-short term memory")
 
 
-
+st.title("Predictive maintainace using LSTM (Long-short term memory")
 st.image('https://calaero.edu/wp-content/uploads/2018/05/Airplane-Transponder.jpg',caption='CMAPPS - NASA', use_column_width=False)
 
 
