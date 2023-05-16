@@ -273,3 +273,35 @@ def plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, senso
 
     # Display the plot using st.pyplot()
     st.pyplot(fig)
+
+    
+def calculate_and_plot_health_index(df, unit_id, weights):
+    # Check if weights are valid
+    if len(weights) != 4:
+        raise ValueError("weights list must have exactly four elements.")
+
+    # Normalize sensor readings for each unit
+    df_normalized = df.groupby('unit_ID').transform(lambda x: (x - x.min()) / (x.max() - x.min()))
+
+    # Calculate health index
+    df['health_index'] = np.dot(df_normalized[['T30', 'T50', 'Nc', 'NRc']], weights)
+
+    # Filter dataframe for the given unit ID
+    df_unit = df[df['unit_ID'] == unit_id]
+
+    # Create a new figure
+    plt.figure(figsize=(10, 6))
+
+    # Plot health index for the specified unit
+    plt.plot(df_unit.index, df_unit['health_index'], label=f'Unit {unit_id}')
+
+    # Add title and labels
+    plt.title(f'Health Index Over Time for Unit nr° {unit_id} (the increasing of the parameters shows off suffering of the engine)')
+    plt.xlabel('Time')
+    plt.ylabel('Health Index')
+
+    # Add a legend
+    plt.legend()
+
+    # Show the plot
+    st.pyplot()
