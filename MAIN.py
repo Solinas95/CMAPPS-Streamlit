@@ -5,6 +5,14 @@ import streamlit as st
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+
+import streamlit as st
+
+st.image('https://www.researchgate.net/publication/348472709/figure/fig1/AS:979966627958790@1610653659534/Schematic-representation-of-the-CMAPSS-model-as-depicted-in-the-CMAPSS-documentation-23.ppm', caption='Turbofan Engine', use_column_width=False)
+
+
+
+
 test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
 if test_data_file is not None:
     df_test = myfunction.load_data(test_data_file)
