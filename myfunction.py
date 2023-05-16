@@ -5,8 +5,8 @@ import sklearn
 from sklearn.preprocessing import MinMaxScaler
 from scipy.stats import f
 import numpy as np
-from tensorflow import keras
-
+import tensorflow as tf
+from tensorflow.keras.models import load_model
 
 
 
