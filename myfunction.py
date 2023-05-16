@@ -310,3 +310,24 @@ def calculate_and_plot_health_index(df, unit_id, weights):
     
     # Show the plot
     st.pyplot()
+    
+   
+def get_last_sequences_with_predictions(df, sequence_cols, sequence_length, model):
+    
+    unique_unit_ids = df['unit_ID'].unique()
+    predictions = []
+    
+    for unit_id in unique_unit_ids:
+        unit_df = df[df['unit_ID'] == unit_id]
+        
+        if len(unit_df) >= sequence_length:
+            sequence = unit_df[sequence_cols].values[-sequence_length:]
+            sequence = np.asarray([sequence])
+            prediction = model.predict(sequence)[0]
+            predictions.append(prediction)
+        else:
+            predictions.append(np.nan)  # Add NaN for missing predictions
+    
+    predictions = np.asarray(predictions)
+    result_df = pd.DataFrame({'unit_ID': unique_unit_ids, 'prediction': predictions})
+    return result_df
