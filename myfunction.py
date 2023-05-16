@@ -5,7 +5,7 @@ import sklearn
 from sklearn.preprocessing import MinMaxScaler
 from scipy.stats import f
 import numpy as np
-import joblib
+import pickle
 # FUNZIONE PER LETTURA FILE DATASET DA GITHUB
 
 def read_data_from_github(train_url, test_url, rul_url):
@@ -309,7 +309,7 @@ def calculate_and_plot_health_index(df, unit_id, weights):
 
 def load_model(path):
         with open(path, 'rb') as f:
-            model = joblib.load(f)
+            model = pickle.load(f)
         return model
 
 
