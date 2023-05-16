@@ -132,4 +132,6 @@ if test_data_file is not None:
     
     
     
-    
+    # Assuming you have a DataFrame called df_test
+    result_df = myfunction.get_last_sequences_with_predictions(df_test_normalized, sequence_columns , sequence_length, model)
+    st.write(result_df.head())
