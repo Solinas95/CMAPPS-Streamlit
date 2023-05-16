@@ -120,11 +120,11 @@ if test_data_file is not None:
     st.write(df_test_normalized.head())
     st.write(df_test_normalized.columns)
     
-    columns_to_remove=[ "unit_ID" , "time_in_cycles" ]
-    df_test_normalized = df_test_normalized.drop(columns_to_remove, axis=1)
+    
+
     st.write(df_test_normalized.shape)
-    sequence_columns = list(df_test_normalized.columns)
-    st.write(print(sequence_columns))
+    sequence_columns = ['T2', 'T24', 'T30', 'T50', 'P2', 'P15', 'P30', 'Nf', 'Nc', 'epr', 'Ps30', 'phi', 'NRf', 'NRc', 'BPR',
+                        'farB', 'htBleed', 'Nf_dmd', 'PCNfR_dmd', 'W31', 'W32', 'setting_1', 'setting_2', 'setting_3','cycle_norm']
     # Load the saved model
     model = load_model("model_lstm.h5")
     model.compile(loss='mean_squared_error', optimizer='nadam',metrics=['mae'])
