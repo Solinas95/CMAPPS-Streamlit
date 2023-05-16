@@ -182,7 +182,7 @@ if test_data_file is not None:
     # Display the fourth part in the fourth column
     with col4:
         st.markdown("## Part 4")
-        st.dataframe(subset_df_part4.style.set_caption("))
+        st.dataframe(subset_df_part4.style.set_caption(""))
         
     
     
