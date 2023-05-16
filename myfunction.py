@@ -304,7 +304,8 @@ def calculate_and_plot_health_index(df, unit_id, weights):
     # Add a legend
     plt.legend()
     
-
+    # Show the plot
+    st.pyplot()
 
 def load_model(path):
         with open(path, 'rb') as f:
@@ -314,5 +315,3 @@ def load_model(path):
 
 
 
-    # Show the plot
-    st.pyplot()
