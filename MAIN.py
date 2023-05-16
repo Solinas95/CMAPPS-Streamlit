@@ -84,7 +84,7 @@ if test_data_file is not None:
     st.write(selected_columns)
     myfunction.plot_selected_columns(test, selected_unit_id, list(selected_columns))
 
-    st.write('Health analysis of the engine") 
+    st.write('Health analysis of the engine') 
              
     # Ask the user to input the weights
     weight1 = st.slider('Weight 1', min_value=0.0, max_value=1.0, value=0.1, step=0.1)
