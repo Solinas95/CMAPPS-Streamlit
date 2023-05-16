@@ -111,5 +111,6 @@ if test_data_file is not None:
     st.write(df_test_normalized.head())
     st.write(df_test_normalized.shape)
     
-    df_test_normalized=myfunction.remove_columns(df_train, df_test, columns_to_remove)
+    column_to_remove=[ "unit_ID" , "time_in_cycles" ]
+    df_test = df_test.drop(columns_to_remove, axis=1)
     
