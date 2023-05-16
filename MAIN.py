@@ -8,7 +8,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 import streamlit as st
 
-st.image('https://www.researchgate.net/publication/348472709/figure/fig1/AS:979966627958790@1610653659534/Schematic-representation-of-the-CMAPSS-model-as-depicted-in-the-CMAPSS-documentation-23.ppm', caption='Turbofan Engine', use_column_width=False)
+
 st.image('https://calaero.edu/wp-content/uploads/2018/05/Airplane-Transponder.jpg',caption='CMAPPS - NASA', use_column_width=False)
 
 
@@ -50,6 +50,8 @@ if test_data_file is not None:
     
     st.title("Visualizzazione dati sensori per unit_ID")
     st.write("Analisi dati delle unità")
+    
+    st.image('https://www.researchgate.net/publication/348472709/figure/fig1/AS:979966627958790@1610653659534/Schematic-representation-of-the-CMAPSS-model-as-depicted-in-the-CMAPSS-documentation-23.ppm', caption='Turbofan Engine', use_column_width=False)
     # PLOT DEI SENSORI CON STANDARD DEVIATION PIU' ELEVATA
     unit_ids = df_test['unit_ID'].unique()
     # Ask the user for the unit_id
