@@ -8,6 +8,13 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 
+# Set page configuration
+st.set_page_config(
+    page_title="Enlarged Window",
+    page_icon=":computer:",
+    layout="wide",  # Optional: Set the layout to wide
+    initial_sidebar_state="expanded"  # Optional: Expand the sidebar by default
+)
 
 
 st.title("Predictive maintainace using LSTM (Long-short term memory)")
