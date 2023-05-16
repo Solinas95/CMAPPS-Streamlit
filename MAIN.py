@@ -76,7 +76,7 @@ if test_data_file is not None:
     cols_to_exclude = ['unit_ID','time_in_cycles']
     df_test_normalized = myfunction.normalize_test_columns(test, cols_to_exclude)
     #st.dataframe(df_test_normalized.head(10))
-    myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
+    #myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
     
     
 
