@@ -273,7 +273,3 @@ def plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, senso
 
     # Display the plot using st.pyplot()
     st.pyplot(fig)
-
-
-    # Display the plot using st.pyplot()
-    st.pyplot()
