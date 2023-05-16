@@ -1,5 +1,6 @@
 import myfunction
 import streamlit as st
+import pickle
 #streamlit run ALB/MAIN.py
 # RINOMINO COLONNE CON LABELS
 
