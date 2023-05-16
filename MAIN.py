@@ -87,10 +87,10 @@ if test_data_file is not None:
     st.write('Health analysis of the engine') 
              
     # Ask the user to input the weights
-    weight1 = st.slider('Weight 1', min_value=0.0, max_value=1.0, value=0.1, step=0.1)
-    weight2 = st.slider('Weight 2', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
-    weight3 = st.slider('Weight 3', min_value=0.0, max_value=1.0, value=0.2, step=0.1)
-    weight4 = st.slider('Weight 4', min_value=0.0, max_value=1.0, value=0.8, step=0.1)
+    weight1 = st.slider('T30 (w)', min_value=0.0, max_value=1.0, value=0.1, step=0.1)
+    weight2 = st.slider('T50 (w) ', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
+    weight3 = st.slider('Nc (w)', min_value=0.0, max_value=1.0, value=0.2, step=0.1)
+    weight4 = st.slider('NRc (w)', min_value=0.0, max_value=1.0, value=0.8, step=0.1)
 
     weights = [weight1, weight2, weight3, weight4]
     
