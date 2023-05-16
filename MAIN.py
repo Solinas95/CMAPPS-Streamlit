@@ -100,7 +100,7 @@ if test_data_file is not None:
     
     
              
-    st.title('Multivariate statistical analysis")
+    st.title('Multivariate statistical analysis')
     st.write('overall comparison between normal and actual data')
     # NORMALIZZAZIONE COLONNE DATASET DI TEST + CREAZIONE cycle_norm
     cols_to_exclude = ['unit_ID','time_in_cycles']
