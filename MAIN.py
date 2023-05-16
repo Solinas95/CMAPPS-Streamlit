@@ -15,7 +15,11 @@ if test_data_file is not None:
     sensors = ['T2', 'T24', 'T30', 'T50', 'P2', 'P15', 'P30', 'Nf', 'Nc', 'epr','Ps30', 'phi', 'NRf', 'NRc', 'BPR', 'farB', 'htBleed', 'Nf_dmd','PCNfR_dmd', 'W31', 'W32']
 
     settings = ['setting_1', 'setting_2','setting_3']
-
+    
+    sequence_length = 50 
+    
+    sequence_cols=sensors + settings
+    
     # IMPORTO DATASET
     url_TRAIN = "https://raw.githubusercontent.com/ashfu96/ALB/main/train_FD001.txt"
     url_TEST = "https://raw.githubusercontent.com/ashfu96/ALB/main/test_FD001.txt"
@@ -73,3 +77,13 @@ if test_data_file is not None:
     df_test_normalized = myfunction.normalize_test_columns(test, cols_to_exclude)
     #st.dataframe(df_test_normalized.head(10))
     #myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
+    
+    
+    # We pick the last sequence for each id in the test data
+    seq_array_test_last = [df_test[df_test['unit_ID']==id][sequence_cols].values[-sequence_length:] 
+                       for id in df_test['unit_ID'].unique() if len(df_test[df_test['unit_ID']==id]) >= sequence_length]
+
+    seq_array_test_last = np.asarray(seq_array_test_last).astype(np.int32)
+    
+    seq_array_test_last.shape
+    
