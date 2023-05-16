@@ -62,7 +62,8 @@ if test_data_file is not None:
 
     # Get the names of the first four columns
     selected_columns = sorted_columns.index[:4]
-
+    type(selected_columns)
+    print(selected_columns)
     myfunction.plot_selected_columns(test, selected_unit_id, selected_columns)
 
 
