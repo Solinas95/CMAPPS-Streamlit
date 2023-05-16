@@ -42,8 +42,8 @@ if test_data_file is not None:
     st.write(df_test.describe())
 
     # RIMOZIONE SENSORI CON DEVIAZIONE STANDARD = 0
-    train = myfunction.remove_zero_std_columns(df_train)
-    test = myfunction.remove_zero_std_columns(df_test)
+    #train = myfunction.remove_zero_std_columns(df_train)
+    #test = myfunction.remove_zero_std_columns(df_test)
 
     st.write(test.shape)
     st.write(test.columns)
