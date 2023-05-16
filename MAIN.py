@@ -136,6 +136,7 @@ if test_data_file is not None:
     result_df = myfunction.get_last_sequences_with_predictions(df_test_normalized, sequence_columns , sequence_length, model)
     not_null = result_df[result_df['prediction'].notnull()].copy()
     not_null["prediction"]=not_null["prediction"].astype(int)
+    not_null = not_null[not_null['prediction'] >= 30].copy()
     subset_df = not_null[not_null['prediction'] < 30].copy()
     null = result_df[result_df['prediction'].isnull()].copy()
     null["prediction"]=null["prediction"].fillna('In control')
