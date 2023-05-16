@@ -48,6 +48,8 @@ if test_data_file is not None:
     columns_to_remove = ['setting_1', 'setting_2']
     train, test = myfunction.remove_columns(train, test, columns_to_remove)
     
+    st.title("Visualizzazioni dati sensori")
+    
     
     st.title("Visualizzazione dati sensori per unit_ID")
     st.write("Analisi dati delle unità")
