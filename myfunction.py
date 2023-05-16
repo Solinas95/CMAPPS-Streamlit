@@ -303,6 +303,16 @@ def calculate_and_plot_health_index(df, unit_id, weights):
 
     # Add a legend
     plt.legend()
+    
+
+
+def load_model(path):
+        with open(path, 'rb') as f:
+            model = pickle.load(f)
+        return model
+
+
+
 
     # Show the plot
     st.pyplot()
