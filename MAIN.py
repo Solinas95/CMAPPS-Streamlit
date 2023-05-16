@@ -153,31 +153,38 @@ if test_data_file is not None:
     part_size = total_rows // 4
     remaining_rows = total_rows % 4
     subset_df = subset_df.sort_values('prediction')
-    # Split the first dataset into three parts
-    df1_part1 = subset_df[:part_size]
-    df1_part2 = subset_df[part_size:part_size*2]
-    df1_part3 = subset_df[part_size*2:part_size*2+remaining_rows]
+    
+    # Split the dataset into four parts
+    subset_df_part1 = subset_df[:part_size]
+    subset_df_part2 = subset_df[part_size:part_size*2]
+    subset_df_part3 = subset_df[part_size*2:part_size*3]
+    subset_df_part4 = subset_df[part_size*3:part_size*3+remaining_rows]
 
-    # Create columns to display the datasets side by side
-    col1, col2, col3 = st.beta_columns(3)
+    
+    # Create columns to display the dataset parts side by side
+    col1, col2, col3, col4 = st.beta_columns(4)
 
     # Display the first part of the first dataset in the first column
     with col1:
         st.markdown("## Urgent maintenance (Part 1)")
-        st.dataframe(df1_part1.style.set_caption("Urgent maintenance (Part 1)"))
+        st.dataframe(subset_df_part1.style.set_caption("Urgent maintenance (Part 1)"))
 
     # Display the second part of the first dataset in the second column
     with col2:
         st.markdown("## Urgent maintenance (Part 2)")
-        st.dataframe(df1_part2.style.set_caption("Urgent maintenance (Part 2)"))
+        st.dataframe(subset_df_part2.style.set_caption("Urgent maintenance (Part 2)"))
 
     # Display the third part of the first dataset in the third column
     with col3:
         st.markdown("## Urgent maintenance (Part 3)")
-        st.dataframe(df1_part3.style.set_caption("Urgent maintenance (Part 3)"))
-
+        st.dataframe(subset_df_part3.style.set_caption("Urgent maintenance (Part 3)"))
+    # Display the fourth part in the fourth column
+    with col4:
+        st.markdown("## Part 4")
+        st.dataframe(subset_df_part4.style.set_caption("Part 4"))
         
-        
+    
+    
     # Create columns to display the datasets side by side
     col1_, col2_ = st.beta_columns(2)
     
