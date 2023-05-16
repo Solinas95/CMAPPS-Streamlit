@@ -76,14 +76,8 @@ if test_data_file is not None:
     cols_to_exclude = ['unit_ID','time_in_cycles']
     df_test_normalized = myfunction.normalize_test_columns(test, cols_to_exclude)
     #st.dataframe(df_test_normalized.head(10))
-    #myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
+    myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
     
     
-    # We pick the last sequence for each id in the test data
-    seq_array_test_last = [df_test[df_test['unit_ID']==id][sequence_cols].values[-sequence_length:] 
-                       for id in df_test['unit_ID'].unique() if len(df_test[df_test['unit_ID']==id]) >= sequence_length]
 
-    seq_array_test_last = np.asarray(seq_array_test_last).astype(np.int32)
-    
-    seq_array_test_last.shape
     
