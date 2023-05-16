@@ -253,19 +253,27 @@ def plot_hotelling_tsquare(df, selected_unit_id, sensors):
     return  unit_T_square
 
 def plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, sensors):
+    # Create a figure and axes
+    fig, ax = plt.subplots()
     # Plot the Hotelling's T-square for the training data
     unit_T_square_train = plot_hotelling_tsquare(df_train, selected_unit_id, sensors)
 
     # Plot the Hotelling's T-square for the test data
     unit_T_square_test = plot_hotelling_tsquare(df_test, selected_unit_id, sensors)
+    # Plot the Hotelling's T-square for the test data
+    unit_T_square_test = plot_hotelling_tsquare(df_test, selected_unit_id, sensors)
 
     # Plot the Hotelling's T-square values and the critical value
-    plt.plot(unit_T_square_train, label="normal data")
-    plt.plot(unit_T_square_test, label="actual data")
-    plt.xlabel('Row Index')
-    plt.ylabel("Hotelling's T-square")
-    plt.title(f'Hotelling\'s T-square for Unit ID {selected_unit_id}')
-    plt.legend()
+    ax.plot(unit_T_square_train, label="normal data")
+    ax.plot(unit_T_square_test, label="actual data")
+    ax.set_xlabel('Row Index')
+    ax.set_ylabel("Hotelling's T-square")
+    ax.set_title(f'Hotelling\'s T-square for Unit ID {selected_unit_id}')
+    ax.legend()
+
+    # Display the plot using st.pyplot()
+    st.pyplot(fig)
+
 
     # Display the plot using st.pyplot()
     st.pyplot()
