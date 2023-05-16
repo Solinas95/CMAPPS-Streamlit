@@ -126,7 +126,7 @@ if test_data_file is not None:
     st.write(df_test_normalized.shape)
     
     
-    with open(path, 'rb') as f:
+    with open('model.pkl', 'rb') as f:
           model = pickle.load(f)
     
     
