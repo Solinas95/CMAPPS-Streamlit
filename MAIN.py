@@ -48,11 +48,11 @@ if test_data_file is not None:
     columns_to_remove = ['setting_1', 'setting_2']
     train, test = myfunction.remove_columns(train, test, columns_to_remove)
     
-    st.title("Visualizzazioni dati sensori")
+    
     
     
     st.title("Visualizzazione dati sensori per unit_ID")
-    st.write("Analisi dati delle unità")
+    st.write("Analisi sensori critici")
     
     st.image('https://www.researchgate.net/publication/348472709/figure/fig1/AS:979966627958790@1610653659534/Schematic-representation-of-the-CMAPSS-model-as-depicted-in-the-CMAPSS-documentation-23.ppm', caption='Turbofan Engine', use_column_width=False)
     # PLOT DEI SENSORI CON STANDARD DEVIATION PIU' ELEVATA
@@ -84,14 +84,8 @@ if test_data_file is not None:
     st.write(selected_columns)
     myfunction.plot_selected_columns(test, selected_unit_id, list(selected_columns))
 
-
-
-    # NORMALIZZAZIONE COLONNE DATASET DI TEST + CREAZIONE cycle_norm
-    cols_to_exclude = ['unit_ID','time_in_cycles']
-    df_test_normalized = myfunction.normalize_test_columns(test, cols_to_exclude)
-    #st.dataframe(df_test_normalized.head(10))
-    myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
-    
+    st.write('Health analysis of the engine") 
+             
     # Ask the user to input the weights
     weight1 = st.slider('Weight 1', min_value=0.0, max_value=1.0, value=0.1, step=0.1)
     weight2 = st.slider('Weight 2', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
@@ -101,5 +95,19 @@ if test_data_file is not None:
     weights = [weight1, weight2, weight3, weight4]
     
     myfunction.calculate_and_plot_health_index(test, selected_unit_id, weights)
+    
+    
+    
+    
+             
+    st.title('Multivariate statistical analysis")
+    st.write('overall comparison between normal and actual data')
+    # NORMALIZZAZIONE COLONNE DATASET DI TEST + CREAZIONE cycle_norm
+    cols_to_exclude = ['unit_ID','time_in_cycles']
+    df_test_normalized = myfunction.normalize_test_columns(test, cols_to_exclude)
+    #st.dataframe(df_test_normalized.head(10))
+    myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
+    
+
 
     
