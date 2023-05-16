@@ -1,6 +1,6 @@
 import myfunction
 import streamlit as st
-
+from tensorflow.keras.models import load_model
 #streamlit run ALB/MAIN.py
 # RINOMINO COLONNE CON LABELS
 
