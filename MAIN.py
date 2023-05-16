@@ -2,7 +2,7 @@ import myfunction
 import streamlit as st
 #streamlit run ALB/MAIN.py
 # RINOMINO COLONNE CON LABELS
-showPyplotGlobalUse = false
+
 
 test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
 if test_data_file is not None:
