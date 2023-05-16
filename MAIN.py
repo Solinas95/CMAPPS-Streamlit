@@ -54,8 +54,7 @@ if test_data_file is not None:
     #train = myfunction.remove_zero_std_columns(df_train)
     #test = myfunction.remove_zero_std_columns(df_test)
 
-    st.write(df_test.shape)
-    st.write(df_test.columns)
+
     
     
     
@@ -90,7 +89,7 @@ if test_data_file is not None:
     # Get the names of the first four columns
     selected_columns = sorted_columns.index[:4]
     
-    st.write(selected_columns)
+    
     myfunction.plot_selected_columns(test, selected_unit_id, list(selected_columns))
 
     st.write('Health analysis of the engine') 
@@ -117,8 +116,7 @@ if test_data_file is not None:
     #st.dataframe(df_test_normalized.head(10))
     myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
     
-    st.write(df_test_normalized.head())
-    st.write(df_test_normalized.columns)
+
     
     
 
@@ -128,10 +126,10 @@ if test_data_file is not None:
     # Load the saved model
     model = load_model("model_lstm.h5")
     model.compile(loss='mean_squared_error', optimizer='nadam',metrics=['mae'])
-    st.write("model loaded")
     
     
     
+    st.title("Prediction of Remain useful life")
     # Assuming you have a DataFrame called df_test
     result_df = myfunction.get_last_sequences_with_predictions(df_test_normalized, sequence_columns , sequence_length, model)
     
