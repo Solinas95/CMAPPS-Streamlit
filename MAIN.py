@@ -100,6 +100,6 @@ if test_data_file is not None:
 
     weights = [weight1, weight2, weight3, weight4]
     
-    calculate_and_plot_health_index(test, selected_unit_id, weights)
+    myfunction.calculate_and_plot_health_index(test, selected_unit_id, weights)
 
     
