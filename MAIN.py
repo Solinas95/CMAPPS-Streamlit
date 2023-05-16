@@ -148,21 +148,45 @@ if test_data_file is not None:
     null["prediction"]=null["prediction"].fillna('In control')
     
     
-    
+    # Calculate the size of each part
+    total_rows = len(subset_df)
+    part_size = total_rows // 3
+    remaining_rows = total_rows % 3
+
+    # Split the first dataset into three parts
+    df1_part1 = subset_df[:part_size]
+    df1_part2 = subset_df[part_size:part_size*2]
+    df1_part3 = subset_df[part_size*2:part_size*2+remaining_rows]
+
     # Create columns to display the datasets side by side
     col1, col2, col3 = st.beta_columns(3)
 
-    # Display the first dataset in the first column
+    # Display the first part of the first dataset in the first column
     with col1:
-        st.markdown("## Urgent maintainance")
-        st.dataframe(subset_df.style.set_caption("Urgent maintainance"))
+        st.markdown("## Urgent maintenance (Part 1)")
+        st.dataframe(df1_part1.style.set_caption("Urgent maintenance (Part 1)"))
 
-    # Display the second dataset in the second column
+    # Display the second part of the first dataset in the second column
     with col2:
+        st.markdown("## Urgent maintenance (Part 2)")
+        st.dataframe(df1_part2.style.set_caption("Urgent maintenance (Part 2)"))
+
+    # Display the third part of the first dataset in the third column
+    with col3:
+        st.markdown("## Urgent maintenance (Part 3)")
+        st.dataframe(df1_part3.style.set_caption("Urgent maintenance (Part 3)"))
+
+        
+        
+    # Create columns to display the datasets side by side
+    col1_, col2_ = st.beta_columns(2)
+    
+    # Display the second dataset in the second column
+    with col1_:
         st.markdown("## Normal condition")
         st.dataframe(not_null.style.set_caption("Normal condition"))
 
     # Display the third dataset in the third column
-    with col3:
+    with col2_:
         st.markdown("## In control")
         st.dataframe(null.style.set_caption("In control"))
