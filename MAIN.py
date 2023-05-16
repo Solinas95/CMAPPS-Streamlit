@@ -172,7 +172,7 @@ if test_data_file is not None:
 
     # Display the second part of the first dataset in the second column
     with col2:
-        st.markdown("## Urgent maintenance (Part 2)")
+        st.markdown("")
         st.dataframe(subset_df_part2.style.set_caption(""))
 
     # Display the third part of the first dataset in the third column
