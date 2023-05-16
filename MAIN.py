@@ -11,7 +11,7 @@ import streamlit as st
 st.image('https://www.researchgate.net/publication/348472709/figure/fig1/AS:979966627958790@1610653659534/Schematic-representation-of-the-CMAPSS-model-as-depicted-in-the-CMAPSS-documentation-23.ppm', caption='Turbofan Engine', use_column_width=False)
 
 
-
+st.image('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fbehrad3d%2Fnasa-cmaps&psig=AOvVaw2UfyfAGltcks6qBOJkEPRY&ust=1684290763638000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCODU15bm-P4CFQAAAAAdAAAAABAI' , use_column_width=False)
 
 test_data_file = st.file_uploader("Upload Test Data (txt)", type="txt")
 if test_data_file is not None:
