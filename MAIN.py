@@ -124,7 +124,7 @@ if test_data_file is not None:
     df_test_normalized = df_test_normalized.drop(columns_to_remove, axis=1)
     st.write(df_test_normalized.shape)
     sequence_columns = list(df_test_normalized.columns)
-    st.write(sequence_columns)
+    st.write(print(sequence_columns))
     # Load the saved model
     model = load_model("model_lstm.h5")
     model.compile(loss='mean_squared_error', optimizer='nadam',metrics=['mae'])
