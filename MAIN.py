@@ -109,5 +109,5 @@ if test_data_file is not None:
     myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
     
     st.write(df_test_normalized.head())
-
+    st.write(df_test_normalized.shape)
     
