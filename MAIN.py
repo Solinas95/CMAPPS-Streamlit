@@ -45,8 +45,8 @@ if test_data_file is not None:
     #train = myfunction.remove_zero_std_columns(df_train)
     #test = myfunction.remove_zero_std_columns(df_test)
 
-    st.write(test.shape)
-    st.write(test.columns)
+    st.write(df_test.shape)
+    st.write(df_test.columns)
     
     
     
