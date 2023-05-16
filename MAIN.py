@@ -150,9 +150,9 @@ if test_data_file is not None:
     
     # Calculate the size of each part
     total_rows = len(subset_df)
-    part_size = total_rows // 3
-    remaining_rows = total_rows % 3
-
+    part_size = total_rows // 4
+    remaining_rows = total_rows % 4
+    subset_df = subset_df.sort_values('prediction')
     # Split the first dataset into three parts
     df1_part1 = subset_df[:part_size]
     df1_part2 = subset_df[part_size:part_size*2]
