@@ -93,8 +93,8 @@ if test_data_file is not None:
     weight4 = st.slider('NRc (w)', min_value=0.0, max_value=1.0, value=0.8, step=0.1)
 
     weights = [weight1, weight2, weight3, weight4]
-    
-    myfunction.calculate_and_plot_health_index(test, selected_unit_id, weights)
+    test2=test.copy()
+    myfunction.calculate_and_plot_health_index(test2, selected_unit_id, weights)
     
     
     
@@ -110,4 +110,6 @@ if test_data_file is not None:
     
     st.write(df_test_normalized.head())
     st.write(df_test_normalized.shape)
+    
+    df_test_normalized.myfunction
     
