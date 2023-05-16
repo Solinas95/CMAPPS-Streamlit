@@ -126,8 +126,9 @@ if test_data_file is not None:
     st.write(df_test_normalized.shape)
     
     
-    with open('model.pkl', 'rb') as f:
-          model = pickle.load(f)
-    
+    # Load the saved model
+    model = keras.models.load_model("model_lstm.h5")
+    model.compile(loss='mean_squared_error', optimizer='nadam',metrics=['mae'])
+    st.write("model loaded")
     
     
