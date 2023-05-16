@@ -6,8 +6,10 @@ import streamlit as st
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
-import streamlit as st
-st.image('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nasa.gov%2Faudience%2Fforstudents%2F5-8%2Ffeatures%2Fsymbols-of-nasa.html&psig=AOvVaw1D9YOK18KCKTlpwgkxJj0m&ust=1684291403593000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKj67sfo-P4CFQAAAAAdAAAAABAE')
+
+
+
+st.title("Predictive maintainace using LSTM (Long-short term memory")
 st.image('https://calaero.edu/wp-content/uploads/2018/05/Airplane-Transponder.jpg',caption='CMAPPS - NASA', use_column_width=False)
 
 
