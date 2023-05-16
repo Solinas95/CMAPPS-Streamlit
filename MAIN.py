@@ -20,6 +20,7 @@ if test_data_file is not None:
     df_test.dropna(axis=1, inplace=True)
     st.write("Test Data:")
     st.write(df_test.shape)
+    
     columns = ['unit_ID','time_in_cycles','setting_1', 'setting_2','setting_3','T2','T24','T30','T50','P2','P15','P30','Nf','Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','PCNfR_dmd','W31','W32' ]
 
     sensors = ['T2', 'T24', 'T30', 'T50', 'P2', 'P15', 'P30', 'Nf', 'Nc', 'epr','Ps30', 'phi', 'NRf', 'NRc', 'BPR', 'farB', 'htBleed', 'Nf_dmd','PCNfR_dmd', 'W31', 'W32']
@@ -44,9 +45,8 @@ if test_data_file is not None:
     train = myfunction.remove_zero_std_columns(df_train)
     test = myfunction.remove_zero_std_columns(df_test)
 
-    # RIMOZIONE COLONNE CHE NON MI SERVONO ORA
-    columns_to_remove = ['setting_1', 'setting_2']
-    train, test = myfunction.remove_columns(train, test, columns_to_remove)
+    st.write(test.shape)
+    st.write(test.columns)
     
     
     
