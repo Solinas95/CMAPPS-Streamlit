@@ -74,4 +74,4 @@ if test_data_file is not None:
 
     
 
-    myfunction.plot_hotelling_tsquare_comparison(train, test, selected_unit_id, selected_columns)
+    myfunction.plot_hotelling_tsquare_comparison(df_train, df_test, selected_unit_id, selected_columns)
