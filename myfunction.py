@@ -5,7 +5,10 @@ import sklearn
 from sklearn.preprocessing import MinMaxScaler
 from scipy.stats import f
 import numpy as np
-import pickle
+from tensorflow import keras
+
+
+
 # FUNZIONE PER LETTURA FILE DATASET DA GITHUB
 
 def read_data_from_github(train_url, test_url, rul_url):
