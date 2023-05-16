@@ -125,5 +125,11 @@ if test_data_file is not None:
     st.write(df_test_normalized.shape)
     
     
-    model = load_model('model.pkl')
+    # Create a button
+    if st.button('Load Model'):
+        # Button is clicked, load the model
+        model = load_model('model.pkl')
+        st.write('Model loaded successfully.')
+    
+    
     
