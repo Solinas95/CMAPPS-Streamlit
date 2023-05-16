@@ -134,4 +134,28 @@ if test_data_file is not None:
     
     # Assuming you have a DataFrame called df_test
     result_df = myfunction.get_last_sequences_with_predictions(df_test_normalized, sequence_columns , sequence_length, model)
-    st.write(result_df.head())
+    not_null = result_df[result_df['prediction'].notnull()].copy()
+    not_null["prediction"]=not_null["prediction"].astype(int)
+    subset_df = not_null[not_null['prediction'] < 30].copy()
+    null = result_df[result_df['prediction'].isnull()].copy()
+    null["prediction"]=null["prediction"].fillna('In control')
+    
+    
+    
+    # Create columns to display the datasets side by side
+    col1, col2, col3 = st.beta_columns(3)
+
+    # Display the first dataset in the first column
+    with col1:
+        st.markdown("## Dataset 1")
+        st.dataframe(subset_df.style.set_caption("Urgent maintainance"))
+
+    # Display the second dataset in the second column
+    with col2:
+        st.markdown("## Dataset 2")
+        st.dataframe(not_null.style.set_caption("Normal condition"))
+
+    # Display the third dataset in the third column
+    with col3:
+        st.markdown("## Dataset 3")
+        st.dataframe(null.style.set_caption("In control"))
