@@ -126,11 +126,8 @@ if test_data_file is not None:
     st.write(df_test_normalized.shape)
     
     
-    # Create a button
-    if st.button('Load Model'):
-        # Button is clicked, load the model
-        model = myfunction.load_model('model.pkl')
-        st.write('Model loaded successfully.')
+     with open(path, 'rb') as f:
+          model = pickle.load(f)
     
     
     
