@@ -9,7 +9,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 
-st.title("Predictive maintainace using LSTM (Long-short term memory")
+st.title("Predictive maintainace using LSTM (Long-short term memory)")
 st.image('https://calaero.edu/wp-content/uploads/2018/05/Airplane-Transponder.jpg',caption='CMAPPS - NASA', use_column_width=False)
 
 
