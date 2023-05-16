@@ -201,7 +201,7 @@ def plot_selected_columns(df_train, selected_unit_id, selected_columns):
 
     
     # Create a figure and a grid of subplots
-    fig, axs = plt.subplots(4, 1, figsize=(20, 50))
+    fig, axs = plt.subplots(2, 2, figsize=(30, 30))
     
     # Flatten the array of axes, for easier indexing
     axs = axs.flatten()
